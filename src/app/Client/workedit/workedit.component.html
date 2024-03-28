@@ -1,0 +1,102 @@
+<div class="col-lg-8 col-md-8 mx-auto section-padding shadow-lg p-3 mb-5 bg-white rounded">
+    <h3 class="mb-30 title_color text-center">Work Edit Details</h3>
+    <div class="col-lg-10 col-md-6 mx-auto ">
+        <form [formGroup]="WorkEditForm">
+            <input type="hidden" formControlName="loginid">
+
+            <div class="mt-10">
+                <input type="text" formControlName="title" placeholder="Work Title" onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Work Title'" required class="single-input shadow-sm">
+                <!-- <div
+                    *ngIf="WorkPostForm.controls['title'].invalid && (WorkPostForm.controls['title'].dirty || WorkPostForm.controls['title'].touched) || validationstatus">
+                    <div *ngIf="WorkPostForm.controls['title'].errors['required']" style="color: red;">
+                        please fill this field</div>
+                    <div *ngIf="WorkPostForm.controls['title'].errors['pattern']" style="color: red;">
+                        First letter must be capital </div>
+                </div> -->
+                <p><i>give appropriate title to the work posting</i></p>
+            </div>
+
+            <div class=" mt-10">
+                <div class="form-select single-input shadow-sm">
+                    <select formControlName="categoryid" (change)="OnChange()">
+                        <option selected value="0">Project category</option>
+                        <option *ngFor="let data of categoryArray" [value]="data.categoryid">
+                            {{data.categoryname}}
+                        </option>
+                    </select>
+                </div>
+                <!-- <div
+                    *ngIf="WorkPostForm.controls['categoryid'].invalid && (WorkPostForm.controls['categoryid'].dirty || WorkPostForm.controls['categoryid'].touched) || validationstatus">
+                    <div *ngIf="WorkPostForm.controls['categoryid'].errors['required']" style="color: red;">
+                        please fill this field</div>
+                    <div *ngIf="WorkPostForm.controls['categoryid'].errors['pattern']" style="color: red;">
+                        First letter must be capital </div>
+                </div> -->
+            </div>
+
+            <div class="mt-10">
+                <div class="form-select single-input shadow-sm">
+                    <select formControlName="subcategoryid">
+                        <option selected value="0">Project Sub-category</option>
+                        <option *ngFor="let data of SubcategoryArray" value="{{data.subcategoryid}}">
+                            {{data.subcategory}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-10">
+                <textarea class="single-textarea shadow-sm" style="height: 240px;" placeholder="Description"
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'"
+                    formControlName="description" required></textarea>
+                <!-- <div
+                    *ngIf="WorkPostForm.controls['description'].invalid && (WorkPostForm.controls['description'].dirty || WorkPostForm.controls['description'].touched) || validationstatus">
+                    <div *ngIf="WorkPostForm.controls['description'].errors['required']" style="color: red;">
+                        please fill this field</div>
+                    <div *ngIf="WorkPostForm.controls['description'].errors['pattern']" style="color: red;">
+                        First letter must be capital </div>
+                </div> -->
+                <p>
+                    <i>
+                        Provide a detailed description of the project <br>
+                        <ul style="list-style-type: circle; margin-left: 20px;">
+                            <li>including scope</li>
+                            <li>objectives</li>
+                            <li>any specific requirements</li>
+                            <li>List the skills necessary for the project</li>
+                        </ul>
+                    </i>
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <input type="text" formControlName="budget" placeholder="Budget" onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Budget'" required class="single-input shadow-sm">
+                <!-- <div
+                    *ngIf="WorkPostForm.controls['budget'].invalid && (WorkPostForm.controls['budget'].dirty || WorkPostForm.controls['budget'].touched) || validationstatus">
+                    <div *ngIf="WorkPostForm.controls['budget'].errors['required']" style="color: red;">
+                        please fill this field</div>
+                    <div *ngIf="WorkPostForm.controls['budget'].errors['pattern']" style="color: red;">
+                        only numbers allowed </div>
+                </div> -->
+            </div>
+
+            <div class="mt-10">
+                <input type="date" formControlName="deadlinedate" class="single-input shadow-sm">
+                <!-- <div
+                    *ngIf="WorkPostForm.controls['deadlinedate'].invalid && (WorkPostForm.controls['deadlinedate'].dirty || WorkPostForm.controls['deadlinedate'].touched) || validationstatus">
+                    <div *ngIf="WorkPostForm.controls['deadlinedate'].errors['required']" style="color: red;">
+                        please fill this field</div>                    
+                </div> -->
+                <p><i>choose a deadline date</i></p>
+            </div>
+
+            <div class="mt-10 text-center">
+                <button class="genric-btn info circle" type="submit" (click)="OnSubmit()">
+                    update
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

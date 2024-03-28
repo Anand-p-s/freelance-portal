@@ -1,0 +1,84 @@
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tab-pane fade show active" id="recent" role="tabpanel" aria-labelledby="home-tab"
+                    *ngFor="let data of workDataArray">
+                    <div class="single-job mb-4 d-lg-flex justify-content-between">
+                        <div class="job-text">
+                            <h3>{{ data.title }}</h3>
+                            <ul class="mt-4">
+                                <li class="mb-3">
+                                    <h5><i class="fa fa-calendar"></i><b style="color: black;">Posted on:</b> {{
+                                        data.postdate|date:"dd-MM-Y" }}
+                                    </h5>
+                                </li>
+                                <li class="mb-3">
+                                    <h5><i class="fa fa-clock-o"></i><b style="color: brown;">Deadline:</b> {{
+                                        data.deadlinedate|date:"dd-MM-yyyy"
+                                        }}</h5>
+                                </li>
+                                <li class="mb-3">
+                                    <button (click)="learnMore(data.workid)" class="genric-btn info">learn
+                                        more</button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- <div class="job-btn align-self-center">
+                            <a (click)="learnMore(data.workid)" class="third-btn job-btn1">learn more</a>
+                        </div> -->
+                        <!-- <div class="job-btn align-self-center">
+                            <a [routerLink]="['/clientmaster/workviewmore', data.workid]"
+                                class="third-btn job-btn1">learn more</a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="main-content" *ngFor="let data of workDetailsArray">
+                    <div class="single-content1">
+                        <div class="single-job mb-4 d-lg-flex justify-content-between">
+                            <div class="job-text">
+                                <h3>{{data.title}}</h3>
+                                <ul class="mt-4">
+                                    <li class="mb-3">
+                                        <h5><i class="fa fa-table"></i> {{data.categoryname}}</h5>
+                                    </li>
+                                    <li class="mb-3">
+                                        <h5><i class="fa fa-list"></i> {{data.subcategory}}</h5>
+                                    </li>
+                                    <li>
+                                        <h5><i class="fa fa-clock-o"></i> Deadline:
+                                            {{data.deadlinedate|date:"dd-MM-yyyy"}}</h5>
+                                    </li>
+                                    <li>
+                                        <h5><i class="fa fa-calendar"></i> {{data.postdate|date:"dd-MM-yyyy"}}
+                                        </h5>
+                                    </li>
+                                    <li class="mb-3">
+                                        <h5><i class="fa fa-inr"></i> {{data.cost}}</h5>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <a style="font-size: 30px;"
+                                            [routerLink]="['/clientmaster/workedit', data.workid]"
+                                            class="fa fa-edit"></a>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <a style="font-size: 30px; color: red;" (click)="deleteWork(data.workid)"
+                                            class="fa fa-trash"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-content4 py-4">
+                        <h4>project description</h4>
+                        <p>{{data.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

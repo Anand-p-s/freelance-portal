@@ -1,0 +1,92 @@
+<form [formGroup]="freelancerCategoryWise">
+  <div class="row" style="padding-top: 78px; padding-left: 73px">
+    <div class="mb-3" style="width: 400px;">
+      <label class="form-label">Category</label>
+      <select class="form-select" formControlName="categoryid">
+        <option selected value="">--select--</option>
+        <option *ngFor="let data of categorydata" value="{{ data.categoryid }}">
+          {{ data.categoryname }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <button
+        (click)="onSubmit()"
+        style="
+          width: 100px;
+          height: 40px;
+          background-color: blue;
+          border-radius: 30px;
+          color: white;
+        "
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+
+<div class="container bootdey">
+  <div class="row bootstrap snippets">
+    <div class="clearfix visible-sm"></div>
+    <!-- Cart -->
+    <div class="col-lg-9 col-md-9 col-sm-12">
+      <div class="col-lg-12 col-sm-12">
+        <br /><br />
+        <span
+          class="title"
+          style="padding-left: 400px; font-size: 20px; font-weight: bold"
+          >Freelancer Category Wise Report</span
+        >
+      </div>
+      <br />
+      <div class="col-lg-12 col-sm-12">
+        <div class="table-responsive">
+          <table class="table table-bordered tbl-cart" #TABLE #table style="width: 100%;">
+            <thead>
+              <tr>
+                <td class="hidden-xs">Profile Pic</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Ph</td>
+                <td>Category</td>
+                <td>Sub-category</td>
+                <td>District</td>
+                <td>City</td>
+                <td>Reg. Date</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of freelancerArray">
+                <td class="hidden-xs">
+                  <a
+                    ><img
+                      src="http://localhost:3000/images/{{ data.image }}"
+                      alt=""
+                      title=""
+                      width="47"
+                      height="47"
+                    />
+                  </a>
+                </td>
+                <td>{{ data.freelancername }}</td>
+                <td>{{ data.email }}</td>
+                <td>{{ data.phone }}</td>
+                <td>{{ data.categoryname }}</td>
+                <td>{{ data.subcategory }}</td>
+                <td>{{ data.district }}</td>
+                <td>{{ data.location }}</td>
+                <td>{{ data.regdate | date : "dd-MM-yyyy" }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,136 @@
+<section class="comment-sec-area py-2">
+  <div class="container">
+    <div class="row flex-column">
+      <!-- <h5 class="text-uppercase pb-80">05 Comments</h5> -->
+      <br />
+
+      <div class="col-lg-12">
+        <div class="jobs-tab tab-item">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"
+                (click)="onClick('all')">
+                all
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onClick('pending')">
+                new
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onClick('accepted')">
+                accepted
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onClick('rejected')">
+                rejected
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="comment-list left-padding">
+        <div class="single-comment justify-content-between d-flex py-4" *ngFor="let data of requestArray">
+
+          <div *ngIf="data.req_status!='paid' && status=='all'">
+            <div class="user justify-content-between d-flex">
+              <div class="thumb">
+                <img src="http://localhost:3000/images/{{ data.logo }}" alt="" style="height: 79px; width: 79px" />
+              </div>
+              <div class="desc">
+                <h5>{{ data.title }}</h5>
+                <p class="date">
+                  Request Date: {{ data.requestdate | date : "dd-MM-yyyy" }}
+                </p>
+                <ng-container [ngSwitch]="data.req_status">
+                  <div *ngSwitchCase="'accepted'">
+                    <p style="color: green">{{ data.req_status }}</p>
+                  </div>
+                  <div *ngSwitchCase="'rejected'">
+                    <p style="color: red">{{ data.req_status }}</p>
+                  </div>
+                  <div *ngSwitchCase="'completed'">
+                    <p style="color: blue">{{ data.req_status }}</p>
+                  </div>
+                  <div *ngSwitchCase="'pending'">
+                    <p style="color: blue">pending</p>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <ng-container [ngSwitch]="data.req_status">
+              <div *ngSwitchCase="'rejected'">
+                <a [routerLink]="['/freelancermaster/rejectview', data.requestid]" class="third-btn">
+                  view
+                </a>
+              </div>
+              <div *ngSwitchCase="'pending'">
+                <a class="genric-btn danger-border" (click)="reqDelete(data.requestid)">
+                  Delete
+                </a>
+              </div>
+            </ng-container>
+          </div>
+
+          <div *ngIf="data.req_status=='pending' && status=='pending'">
+            <div class="user justify-content-between d-flex">
+              <div class="thumb">
+                <img src="http://localhost:3000/images/{{ data.logo }}" alt="" style="height: 79px; width: 79px" />
+              </div>
+              <div class="desc">
+                <h5>{{ data.title }}</h5>
+                <p class="date">
+                  Request Date: {{ data.requestdate | date : "dd-MM-yyyy" }}
+                </p>
+
+                <p style="color: blue">{{ data.req_status }}</p>
+
+                <a class="genric-btn danger-border" (click)="reqDelete(data.requestid)">
+                  Delete
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="data.req_status=='accepted' && status=='accepted'">
+            <div class="user justify-content-between d-flex">
+              <div class="thumb">
+                <img src="http://localhost:3000/images/{{ data.logo }}" alt="" style="height: 79px; width: 79px" />
+              </div>
+              <div class="desc">
+                <h5>{{ data.title }}</h5>
+                <p class="date">
+                  Request Date: {{ data.requestdate | date : "dd-MM-yyyy" }}
+                </p>
+                <p style="color: green">{{ data.req_status }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="data.req_status=='rejected' && status=='rejected'">
+            <div class="user justify-content-between d-flex">
+              <div class="thumb">
+                <img src="http://localhost:3000/images/{{ data.logo }}" alt="" style="height: 79px; width: 79px" />
+              </div>
+              <div class="desc">
+                <h5>{{ data.title }}</h5>
+                <p class="date">
+                  Request Date: {{ data.requestdate | date : "dd-MM-yyyy" }}
+                </p>
+                <p style="color: red">{{ data.req_status }}</p>
+                <a [routerLink]="['/freelancermaster/rejectview', data.requestid]" class="third-btn">
+                  view
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

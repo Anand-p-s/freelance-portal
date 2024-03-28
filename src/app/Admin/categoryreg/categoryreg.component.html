@@ -1,0 +1,38 @@
+<br> <br> <br><br>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Category Registration</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="CategoryRegForm" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">Category</label>
+                                <input type="text" class="form-control" formControlName="category">
+                                <div
+                                    *ngIf="CategoryRegForm.controls['category'].invalid && (CategoryRegForm.controls['category'].dirty || CategoryRegForm.controls['category'].touched) || validationstatus">
+                                    <div *ngIf="CategoryRegForm.controls['category'].errors['required']"
+                                        style="color: red;">
+                                        please fill this</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Category Image</label>
+                                <input type="file" class="form-control" formControlName="categoryimage"
+                                    (change)="selectFile($event)">
+                                <div
+                                    *ngIf="CategoryRegForm.controls['categoryimage'].invalid && (CategoryRegForm.controls['categoryimage'].dirty || CategoryRegForm.controls['categoryimage'].touched) || validationstatus">
+                                    <div *ngIf="CategoryRegForm.controls['categoryimage'].errors['required']"
+                                        style="color: red;">
+                                        please fill this</div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

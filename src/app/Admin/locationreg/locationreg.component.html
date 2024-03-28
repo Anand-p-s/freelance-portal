@@ -1,0 +1,46 @@
+<br> <br> <br><br>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Location Registration</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="LocationRegForm">
+                            <div class="mb-3">
+                                <label class="form-label">District</label>
+                                <select class="form-select" formControlName="districtid"
+                                    style="display: block !important;">
+                                    <option selected value="">--select--</option>
+                                    <option *ngFor="let data of districtdata" value="{{data.districtid}}">
+                                        {{data.district}}
+                                    </option>
+                                </select>
+                                <div
+                                    *ngIf="LocationRegForm.controls['districtid'].invalid && (LocationRegForm.controls['districtid'].dirty || LocationRegForm.controls['districtid'].touched) || validationstatus">
+                                    <div *ngIf="LocationRegForm.controls['districtid'].errors['required']"
+                                        style="color: red;">
+                                        please fill this</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Location</label>
+                                <input type="text" class="form-control" formControlName="location"
+                                    placeholder="location name here">
+                                <div
+                                    *ngIf="LocationRegForm.controls['location'].invalid && (LocationRegForm.controls['location'].dirty || LocationRegForm.controls['location'].touched) || validationstatus">
+                                    <div *ngIf="LocationRegForm.controls['location'].errors['required']"
+                                        style="color: red;">
+                                        please fill this</div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

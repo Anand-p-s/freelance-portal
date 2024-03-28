@@ -1,0 +1,147 @@
+<section class="">
+    <div class="whole-wrap">
+        <div class="container">
+            <div class="section-top-border">
+                <div class="col-lg-8 col-md-8 offset-lg-2 offset-md-2">
+                    <div class="typography">
+                        <h2 class="typo-list text-center">Sign up to find work you love</h2>
+                    </div>
+                    <br>
+                    <form [formGroup]="FreelancerRegForm">
+                        <div class=" mt-10">
+                            <input type="text" formControlName="name" placeholder="Full name"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full name'" required
+                                class="single-input">
+                            <div
+                                *ngIf="FreelancerRegForm.controls['name'].invalid && (FreelancerRegForm.controls['name'].dirty || FreelancerRegForm.controls['name'].touched) || validationstatus">
+                                <div *ngIf="FreelancerRegForm.controls['name'].errors['required']" style="color: red;">
+                                    please fill this field</div>
+                                <div *ngIf="FreelancerRegForm.controls['name'].errors['pattern']" style="color: red;">
+                                    first letter must be capital </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <input type="email" formControlName="EMAIL" placeholder="Email address"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
+                                class="single-input">
+                            <div
+                                *ngIf="FreelancerRegForm.controls['EMAIL'].invalid && (FreelancerRegForm.controls['EMAIL'].dirty || FreelancerRegForm.controls['EMAIL'].touched) || validationstatus">
+                                <div *ngIf="FreelancerRegForm.controls['EMAIL'].errors['required']" style="color: red;">
+                                    please fill this field</div>
+                                <div *ngIf="FreelancerRegForm.controls['EMAIL'].errors['email']" style="color: red;">
+                                    enter a valid email </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <input type="text" formControlName="phone" placeholder="Contact number"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact number'" required
+                                class="single-input">
+                            <div
+                                *ngIf="FreelancerRegForm.controls['phone'].invalid && (FreelancerRegForm.controls['phone'].dirty || FreelancerRegForm.controls['phone'].touched) || validationstatus">
+                                <div *ngIf="FreelancerRegForm.controls['phone'].errors['required']" style="color: red;">
+                                    please fill this field</div>
+                                <div *ngIf="FreelancerRegForm.controls['phone'].errors['pattern']" style="color: red;">
+                                    enter a valid phone no. </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <input type="text" formControlName="username" placeholder="username"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'username'" required
+                                class="single-input-primary">
+                            <div
+                                *ngIf="FreelancerRegForm.controls['username'].invalid && (FreelancerRegForm.controls['username'].dirty || FreelancerRegForm.controls['username'].touched) || validationstatus">
+                                <div *ngIf="FreelancerRegForm.controls['username'].errors['required']"
+                                    style="color: red;">
+                                    please fill this field</div>
+                                <div *ngIf="FreelancerRegForm.controls['username'].errors['pattern']"
+                                    style="color: red;">
+                                    must start with a letter <br> at least 5 characters long (since the first letter is
+                                    included) and at most 19 characters long </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <input type="password" formControlName="password" placeholder="password"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'password'" required
+                                class="single-input-accent">
+                            <div
+                                *ngIf="FreelancerRegForm.controls['password'].invalid && (FreelancerRegForm.controls['password'].dirty || FreelancerRegForm.controls['password'].touched) || validationstatus">
+                                <div *ngIf="FreelancerRegForm.controls['password'].errors['required']"
+                                    style="color: red;">
+                                    please fill this field</div>
+                                <div *ngIf="FreelancerRegForm.controls['password'].errors['pattern']"
+                                    style="color: red;">
+                                    must contain atleast 8 characters, one uppercase and one number </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="typography">
+                            <h6 class="typo-list text-center">Choose your field</h6>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mt-10">
+                                <select class="form-select" formControlName="categoryid" (change)="OnChangeCategory()">
+                                    <option selected value="">--category--</option>
+                                    <option *ngFor="let data of categoryArray" value="{{data.categoryid}}">
+                                        {{data.categoryname}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mt-10">
+                                <select class="form-select" formControlName="subcategoryid">
+                                    <option selected value="">--subcategory--</option>
+                                    <option *ngFor="let data of SubcategoryArray" value="{{data.subcategoryid}}">
+                                        {{data.subcategory}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="typography">
+                            <h6 class="typo-list text-center">Choose your location</h6>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mt-10">
+                                <select class="form-select" formControlName="districtid" (change)="OnChangeDistrict()">
+                                    <option selected value="">--district--</option>
+                                    <option *ngFor="let data of districtArray" value="{{data.districtid}}">
+                                        {{data.district}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mt-10">
+                                <select class="form-select" formControlName="locationid">
+                                    <option selected value="">--city--</option>
+                                    <option *ngFor="let data of locationArray" value="{{data.locationid}}">
+                                        {{data.location}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mt-10 text-center">
+                                <label class="form-label">Profile picture</label>
+                                <input type="file" formControlName="image" class="form-control"
+                                    (change)="selectFile($event)">
+                                <div
+                                    *ngIf="FreelancerRegForm.controls['image'].invalid && (FreelancerRegForm.controls['image'].dirty || FreelancerRegForm.controls['image'].touched) || validationstatus">
+                                    <div *ngIf="FreelancerRegForm.controls['image'].errors['required']"
+                                        style="color: red;">
+                                        please fill this field</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <br>
+                        <div class="mt-10 text-center">
+                            <button class="genric-btn info circle" type="submit" (click)="OnSubmit()">
+                                Create account
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

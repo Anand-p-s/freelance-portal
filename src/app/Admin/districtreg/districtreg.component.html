@@ -1,0 +1,26 @@
+<br> <br> <br><br>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">District Registration</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="DistrictRegForm">
+                            <div class="mb-3">
+                                <label class="form-label">District</label>
+                                <input type="text" class="form-control" formControlName="district" placeholder="Name">
+                                <div
+                                    *ngIf="DistrictRegForm.controls['district'].invalid && (DistrictRegForm.controls['district'].dirty || DistrictRegForm.controls['district'].touched) || validationstatus">
+                                    <div *ngIf="DistrictRegForm.controls['district'].errors['required']" style="color: red;">
+                                        please fill this</div>                                    
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

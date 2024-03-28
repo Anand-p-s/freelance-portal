@@ -1,0 +1,147 @@
+<section class="">
+    <div class="whole-wrap">
+        <div class="container">
+            <div class="section-top-border">
+                <div class="col-lg-8 col-md-8 offset-lg-2 offset-md-2">
+                    <div class="typography">
+                        <h2 class="typo-list text-center">Profile update</h2>
+                    </div>
+                    <br />
+                    <form [formGroup]="FreelancerEditForm">
+
+                        <div class=" mt-10">
+                            <input type="text" formControlName="name" placeholder="Full name"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full name'" required
+                                class="single-input" />
+                            <div
+                                *ngIf="FreelancerEditForm.controls['name'].invalid && (FreelancerEditForm.controls['name'].dirty || FreelancerEditForm.controls['name'].touched) || validationstatus">
+                                <div *ngIf="FreelancerEditForm.controls['name'].errors['required']" style="color: red;">
+                                    please fill this field</div>
+                                <div *ngIf="FreelancerEditForm.controls['name'].errors['pattern']" style="color: red;">
+                                    must contain atleast 8 characters, one uppercase and one number </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10">
+                            <input type="email" formControlName="EMAIL" placeholder="Email address"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
+                                class="single-input" />
+                            <div
+                                *ngIf="FreelancerEditForm.controls['EMAIL'].invalid && (FreelancerEditForm.controls['EMAIL'].dirty || FreelancerEditForm.controls['EMAIL'].touched) || validationstatus">
+                                <div *ngIf="FreelancerEditForm.controls['EMAIL'].errors['required']"
+                                    style="color: red;">
+                                    please fill this field</div>
+                                <div *ngIf="FreelancerEditForm.controls['EMAIL'].errors['pattern']" style="color: red;">
+                                    must contain atleast 8 characters, one uppercase and one number </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <input type="text" formControlName="phone" placeholder="Contact number"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact number'" required
+                                class="single-input" />
+                            <div
+                                *ngIf="FreelancerEditForm.controls['phone'].invalid && (FreelancerEditForm.controls['phone'].dirty || FreelancerEditForm.controls['phone'].touched) || validationstatus">
+                                <div *ngIf="FreelancerEditForm.controls['phone'].errors['required']"
+                                    style="color: red;">
+                                    please fill this field</div>
+                                <div *ngIf="FreelancerEditForm.controls['phone'].errors['pattern']" style="color: red;">
+                                   enter a valid phone no. </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mt-10">
+                                <select class="form-select" formControlName="categoryid" (change)="OnChangeCategory()">
+                                    <option selected value="">--category--</option>
+                                    <option *ngFor="let data of categoryArray" value="{{data.categoryid}}">
+                                        {{data.categoryname}}
+                                    </option>
+                                </select>
+                                <div
+                                    *ngIf="FreelancerEditForm.controls['categoryid'].invalid && (FreelancerEditForm.controls['categoryid'].dirty || FreelancerEditForm.controls['categoryid'].touched) || validationstatus">
+                                    <div *ngIf="FreelancerEditForm.controls['categoryid'].errors['required']"
+                                        style="color: red;">
+                                        please fill this field
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-10">
+                                <select class="form-select" formControlName="subcategoryid">
+                                    <option selected value="">--subcategory--</option>
+                                    <option *ngFor="let data of subcategoryArray" value="{{data.subcategoryid}}">
+                                        {{data.subcategory}}
+                                    </option>
+                                </select>
+                                <div
+                                    *ngIf="FreelancerEditForm.controls['subcategoryid'].invalid && (FreelancerEditForm.controls['subcategoryid'].dirty || FreelancerEditForm.controls['subcategoryid'].touched) || validationstatus">
+                                    <div *ngIf="FreelancerEditForm.controls['subcategoryid'].errors['required']"
+                                        style="color: red;">
+                                        please fill this field
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6 mt-10">
+                                <select class="form-select" formControlName="districtid" (change)="onChangeDistrict()">
+                                    <option disabled selected value="0">--district--</option>
+                                    <option *ngFor="let data of districtArray" value="{{ data.districtid }}">
+                                        {{ data.district }}
+                                    </option>
+                                </select>
+                                <div
+                                    *ngIf="FreelancerEditForm.controls['districtid'].invalid && (FreelancerEditForm.controls['districtid'].dirty || FreelancerEditForm.controls['districtid'].touched) || validationstatus">
+                                    <div *ngIf="FreelancerEditForm.controls['districtid'].errors['required']"
+                                        style="color: red;">
+                                        please fill this field
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-10">
+                                <select class="form-select" formControlName="locationid">
+                                    <option disabled selected value="0">--city--</option>
+                                    <option *ngFor="let data of locationArray" value="{{ data.locationid }}">
+                                        {{ data.location }}
+                                    </option>
+                                </select>
+                                <div
+                                    *ngIf="FreelancerEditForm.controls['locationid'].invalid && (FreelancerEditForm.controls['locationid'].dirty || FreelancerEditForm.controls['locationid'].touched) || validationstatus">
+                                    <div *ngIf="FreelancerEditForm.controls['locationid'].errors['required']"
+                                        style="color: red;">
+                                        please fill this field
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <!-- <div class="row">
+                              <div class="mt-10 col-md-6 offset-md-3 text-center">
+                                  <label class="form-label">Choose logo</label>
+                                  <input type="file" formControlName="logo" class="form-control"
+                                      (change)="selectFile($event)">
+                              </div>
+                          </div> -->
+
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mt-10 text-center">
+                                    <button class="genric-btn info circle" type="submit" (click)="onSubmit()">
+                                        Save changes
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mt-10 text-center">
+                                    <button class="genric-btn danger circle" type="submit" (click)="cancel()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

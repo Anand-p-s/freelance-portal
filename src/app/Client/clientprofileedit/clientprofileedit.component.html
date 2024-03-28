@@ -1,0 +1,71 @@
+<section class="">
+  <div class="whole-wrap">
+    <div class="container">
+      <div class="section-top-border">
+        <div class="col-lg-8 col-md-8 offset-lg-2 offset-md-2">
+          <div class="typography">
+            <h2 class="typo-list text-center">Profile update</h2>
+          </div>
+          <br />
+          <form [formGroup]="ClientEditForm">
+            <div class="row">
+              <div class="col-md-6 mt-10">
+                <input type="text" formControlName="name" placeholder="Company name" onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Company name'" required class="single-input" />
+              </div>
+              <div class="col-md-6 mt-10">
+                <input type="text" formControlName="licenseno" placeholder="License no." onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'License no.'" required class="single-input" />
+              </div>
+            </div>
+            <div class="mt-10">
+              <input type="email" formControlName="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Email address'" required class="single-input" />
+            </div>
+            <div class="mt-10">
+              <input type="text" formControlName="phone" placeholder="Contact number" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Contact number'" required class="single-input" />
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-md-6 mt-10">
+                <select class="form-select" formControlName="districtid" (change)="onChange()">
+                  <option disabled selected value="0">--district--</option>
+                  <option *ngFor="let data of districtArray" value="{{ data.districtid }}">
+                    {{ data.district }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-6 mt-10">
+                <select class="form-select" formControlName="locationid">
+                  <option disabled selected value="0">--city--</option>
+                  <option *ngFor="let data of locationArray" value="{{ data.locationid }}">
+                    {{ data.location }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mt-10 text-center">
+                  <button class="genric-btn info circle" type="submit" (click)="onSubmit()">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mt-10 text-center">
+                  <button class="genric-btn danger circle" type="submit" (click)="cancel()">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

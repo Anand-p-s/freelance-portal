@@ -1,0 +1,43 @@
+<br> <br> <br><br>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Subcategory Edit</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="SubcategoryEditForm">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Choose Category</label>
+                                <select class="form-select" formControlName="categoryid">
+                                    <option selected value="">--select--</option>
+                                    <option *ngFor="let data of categoryArray" value="{{data.categoryid}}">
+                                        {{data.categoryname}}
+                                    </option>
+                                </select>
+                                <div
+                                    *ngIf="SubcategoryEditForm.controls['categoryid'].invalid && (SubcategoryEditForm.controls['categoryid'].dirty || SubcategoryEditForm.controls['categoryid'].touched) || validationstatus">
+                                    <div *ngIf="SubcategoryEditForm.controls['categoryid'].errors['required']"
+                                        style="color: red;">
+                                        please fill this</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Subcategory</label>
+                                <input type="text" class="form-control" formControlName="subcategoryname">
+                                <input type="hidden" formControlName="subcategoryid">
+                                <div
+                                    *ngIf="SubcategoryEditForm.controls['subcategoryname'].invalid && (SubcategoryEditForm.controls['subcategoryname'].dirty || SubcategoryEditForm.controls['subcategoryname'].touched) || validationstatus">
+                                    <div *ngIf="SubcategoryEditForm.controls['subcategoryname'].errors['required']"
+                                        style="color: red;">
+                                        please fill this</div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

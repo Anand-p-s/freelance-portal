@@ -1,0 +1,58 @@
+<section class="jobs-area section-padding3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="jobs-title">
+                    <h2>Projects</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="jobs-tab tab-item">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home"
+                                aria-selected="true" (click)="onClick('accepted')">ongoing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile"
+                                aria-selected="false" (click)="onClick('completed')">completed</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile"
+                                aria-selected="false" (click)="onClick('paid')">Paid</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <section class="feature-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4" *ngFor="let data of projectArray">
+                        <div class="single-feature mb-4 mb-lg-0">
+                            <h4>{{data.title}}</h4>
+                            <p class="py-3">posted on: {{data.postdate|date:"dd-MM-yyyy"}}</p>
+                            <ng-container [ngSwitch]="data.req_status">
+                                <a *ngSwitchCase="'accepted'"
+                                    [routerLink]="['/clientmaster/progressview', data.workid, data.requestid]"
+                                    class="secondary-btn">view progress<span class="flaticon-next"></span>
+                                </a>
+                                <div class="col-4 d-flex align-items-center justify-content-end">
+                                    <button *ngSwitchCase="'completed'"
+                                        [routerLink]="['/clientmaster/payment', data.workid, data.requestid]"
+                                        class="genric-btn info circle">
+                                        pay
+                                    </button>
+                                </div>
+                                <button *ngSwitchCase="'paid'" class="genric-btn disable">Paid</button>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</section>

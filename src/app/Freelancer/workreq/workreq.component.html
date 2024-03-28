@@ -1,0 +1,38 @@
+<section class="">
+    <div class="whole-wrap">
+        <div class="container">
+            <div class="section-top-border">
+                <div class="col-lg-8 col-md-8 offset-lg-2 offset-md-2">
+                    <div class="typography">
+                        <h2 class="typo-list text-center">Request Form</h2>
+                    </div>
+                    <br>
+                    <form [formGroup]="WorkReqForm">
+                        <input type="hidden" formControlName="freelancerid">
+
+                        <div class="mt-10">
+                            <label for="">Name</label>
+                            <input type="text" formControlName="name" placeholder="Name" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Name'" required class="single-input">
+                        </div>
+
+                        <br>
+
+                        <div class="mt-10">
+                            <label class="form-label">upload your biodata</label>
+                            <input type="file" formControlName="biodata" class="form-control"
+                                (change)="selectFile($event)">
+                        </div>
+                        <br>
+                        <div class="mt-10 text-center">
+                            <button class="genric-btn info circle" type="submit" (click)="OnSubmit()">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

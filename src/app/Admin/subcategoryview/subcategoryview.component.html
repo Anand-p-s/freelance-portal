@@ -1,0 +1,54 @@
+<br> <br> <br><br>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Subcategory View Page</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="SubcategoryViewForm">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Choose Category</label>
+                                <select class="form-select" formControlName="categoryid" (change)="OnChange()">
+                                    <option selected value="">--select--</option>
+                                    <option *ngFor="let data of categoryArray" value="{{data.categoryid}}">
+                                        {{data.categoryname}}
+                                    </option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Subcategory list</h5>
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor="let data of subcategoryArray, let i = index">
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">{{i+1}}</h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">{{data.subcategory}}</h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <a>
+                                    <button class="btn btn-primary"
+                                        [routerLink]="['/adminmaster/subcategoryedit', data.subcategoryid]"><i
+                                            class="ti ti-edit"></i></button>
+                                </a>
+                            </td>
+                            <td class="border-bottom-0">
+                                <button class="btn btn-danger" (click)="subcategoryDelete(data.subcategoryid)">
+                                    <i class="ti ti-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

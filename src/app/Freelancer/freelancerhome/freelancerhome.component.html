@@ -1,0 +1,73 @@
+<!-- Banner Area Starts -->
+<section class="banner-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 px-0">
+                <div class="banner-bg"></div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="banner-text">
+                    <h1>find your dream <span>job</span> with comport</h1>
+                    <!-- <p class="py-3">Wherein herb beginning. Moved after gathering. Sea hi crate fowl man replenish place
+                        divided likeness herb one two lnetn Winged moving saw, may over.</p> -->
+                    <a [routerLink]="['/freelancermaster/workview']" class="secondary-btn">explore now<span
+                            class="flaticon-next"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Area End -->
+
+<!-- job area -->
+<section class="jobs-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="jobs-title">
+                    <h2>Browse recent jobs</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="recent" role="tabpanel" aria-labelledby="home-tab"
+                        *ngFor="let data of workDataArray.slice(0, 5)">
+                        <div class="single-job mb-4 d-lg-flex justify-content-between">
+                            <div class="job-text">
+                                <h4>{{data.title}}</h4>
+                                <ul class="mt-4">
+                                    <li class="mb-3">
+                                        <h5><i class="fa fa-user"></i> {{data.companyname}}</h5>
+                                    </li> 
+                                    <li>
+                                        <h5><i class="fa fa-calendar"></i>{{data.postdate|date:"dd-MM-yyyy"}}
+                                        </h5>
+                                    </li>                                   
+                                    <li>
+                                        <h5><i class="fa fa-calendar"></i> Deadline :
+                                            {{data.deadlinedate|date:"dd-MM-yyyy"}}</h5>
+                                    </li>                                    
+                                </ul>
+                            </div>
+                            <div class="job-img align-self-center">
+                                <img style="height: 100px;" src="http://localhost:3000/images/{{data.logo}}" alt="job">
+                            </div>
+                            <div class="job-btn align-self-center">
+                                <a [routerLink]="['/freelancermaster/workdetails', data.workid]"
+                                    class="third-btn job-btn1">view more</a>
+                                <a [routerLink]="['/freelancermaster/workreq',data.workid]" class="third-btn">apply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="more-job-btn mt-5 text-center">
+            <a [routerLink]="['/freelancermaster/workview']" class="template-btn">more job post</a>
+        </div>
+    </div>
+</section>
+<!-- job area ends -->

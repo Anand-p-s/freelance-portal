@@ -1,0 +1,48 @@
+<br> <br> <br><br>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Category View Page</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table text-nowrap mb-0 align-middle">
+                                <tbody>
+                                    <tr *ngFor="let data of categoryArray, let i = index">
+                                        <td class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0">{{i+1}}</h6>
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0">{{data.categoryname}}</h6>
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            <img style="width: 70px; height: 70px; border-radius: 50%;"
+                                                src="http://localhost:3000/images/{{data.categoryimage}}">
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            <a>
+                                                <button class="btn btn-primary"
+                                                    [routerLink]="['/adminmaster/categoryedit', data.categoryid]"><i
+                                                        class="ti ti-edit"></i></button>
+                                            </a>
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            <a>
+                                                <button class="btn btn-danger"
+                                                    (click)="categoryDelete(data.categoryid)">
+                                                    <i class="ti ti-trash"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

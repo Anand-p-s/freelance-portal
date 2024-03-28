@@ -1,0 +1,26 @@
+<section class="">
+    <div class="whole-wrap">
+        <div class="container">
+            <div class="section-top-border">
+                <div class="col-lg-8 col-md-8 offset-lg-2 offset-md-2">                    
+                    <form [formGroup]="rejectForm">
+                        <div class="mt-10">
+                            <textarea class="single-textarea shadow-sm" style="height: 240px;" placeholder="Write your reason for rejection..."
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Write your reason for rejection...'"
+                                formControlName="rejectreason" required></textarea>                            
+                        </div>
+                        <br>
+                        
+                        <br>
+                        <div class="mt-10 text-center">
+                            <button class="genric-btn info circle" type="submit" (click)="onSubmit()">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

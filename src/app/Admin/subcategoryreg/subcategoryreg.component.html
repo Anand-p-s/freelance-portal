@@ -1,0 +1,43 @@
+<br> <br> <br><br>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Sub Category Registration</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="SubCategoryRegForm">
+                            <div class="mb-3">
+                                <label class="form-label">Sub Category</label>
+                                <input type="text" class="form-control" formControlName="subcategory"
+                                    placeholder="sub category name here">
+                                <div
+                                    *ngIf="SubCategoryRegForm.controls['subcategory'].invalid && (SubCategoryRegForm.controls['subcategory'].dirty || SubCategoryRegForm.controls['subcategory'].touched) || validationstatus">
+                                    <div *ngIf="SubCategoryRegForm.controls['subcategory'].errors['required']"
+                                        style="color: red;">
+                                        please fill this</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" formControlName="category">
+                                    <option selected value="">--select--</option>
+                                    <option *ngFor="let data of categorydata" value="{{data.categoryid}}">
+                                        {{data.categoryname}}
+                                    </option>
+                                </select>
+                                <div
+                                    *ngIf="SubCategoryRegForm.controls['category'].invalid && (SubCategoryRegForm.controls['category'].dirty || SubCategoryRegForm.controls['category'].touched) || validationstatus">
+                                    <div *ngIf="SubCategoryRegForm.controls['category'].errors['required']"
+                                        style="color: red;">
+                                        please fill this</div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
