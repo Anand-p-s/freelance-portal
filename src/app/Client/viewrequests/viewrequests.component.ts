@@ -38,7 +38,7 @@ export class ViewrequestsComponent {
   downloadPdf(data: any) {
     if (data && data.biodata) {
       console.log('download clicked');
-      const pdfUrl = `http://localhost:3000/images/${data.biodata}`;
+      const pdfUrl = `https://freelanceportalbackend.onrender.com/images/${data.biodata}`;
       const filename = data.biodata.split('/').pop();
       this.http.get(pdfUrl, { responseType: 'blob' }).subscribe(
         (response) => {

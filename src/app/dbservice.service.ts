@@ -11,40 +11,40 @@ export class DbserviceService {
   constructor(private http: HttpClient) {}
 
   login(data: any) {
-    return this.http.post('http://localhost:3000/login', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/login', data).toPromise();
   }
 
   districtreg(data: any) {
     return this.http
-      .post('http://localhost:3000/districtreg', data)
+      .post('https://freelanceportalbackend.onrender.com/districtreg', data)
       .toPromise();
   }
 
   locationreg(data: any) {
     return this.http
-      .post('http://localhost:3000/locationreg', data)
+      .post('https://freelanceportalbackend.onrender.com/locationreg', data)
       .toPromise();
   }
 
   districtview() {
-    return this.http.get('http://localhost:3000/districtview').toPromise();
+    return this.http.get('https://freelanceportalbackend.onrender.com/districtview').toPromise();
   }
 
   getDistrictById(data: any) {
     return this.http
-      .post('http://localhost:3000/getdistrictbyid', data)
+      .post('https://freelanceportalbackend.onrender.com/getdistrictbyid', data)
       .toPromise();
   }
 
   districtDelete(data: any) {
     return this.http
-      .post('http://localhost:3000/districtdelete', data)
+      .post('https://freelanceportalbackend.onrender.com/districtdelete', data)
       .toPromise();
   }
 
   districtEdit(data: any) {
     return this.http
-      .post('http://localhost:3000/districtedit', data)
+      .post('https://freelanceportalbackend.onrender.com/districtedit', data)
       .toPromise();
   }
 
@@ -54,7 +54,7 @@ export class DbserviceService {
 
     const req = new HttpRequest(
       'POST',
-      'http://localhost:3000/upload',
+      'https://freelanceportalbackend.onrender.com/upload',
       formData,
       {
         reportProgress: true,
@@ -66,7 +66,7 @@ export class DbserviceService {
 
   categoryreg(data: any) {
     return this.http
-      .post('http://localhost:3000/categoryreg', data)
+      .post('https://freelanceportalbackend.onrender.com/categoryreg', data)
       .toPromise();
   }
 
@@ -79,270 +79,270 @@ export class DbserviceService {
   // }
 
   categoryView() {
-    // const url = 'http://localhost:3000/categoryview?timestamp=' + new Date().getTime();
+    // const url = 'https://freelanceportalbackend.onrender.com/categoryview?timestamp=' + new Date().getTime();
     // return this.http.get(url).toPromise();
-    return this.http.get('http://localhost:3000/categoryview').toPromise();
+    return this.http.get('https://freelanceportalbackend.onrender.com/categoryview').toPromise();
   }
 
   subcategoryReg(data: any) {
     return this.http
-      .post('http://localhost:3000/subcategoryreg', data)
+      .post('https://freelanceportalbackend.onrender.com/subcategoryreg', data)
       .toPromise();
   }
 
   getlocation(data: any) {
     return this.http
-      .post('http://localhost:3000/getlocation', data)
+      .post('https://freelanceportalbackend.onrender.com/getlocation', data)
       .toPromise();
   }
 
   locationDelete(data: any) {
     return this.http
-      .post('http://localhost:3000/locationdelete', data)
+      .post('https://freelanceportalbackend.onrender.com/locationdelete', data)
       .toPromise();
   }
 
   locationEdit(data: any) {
     return this.http
-      .post('http://localhost:3000/locationedit', data)
+      .post('https://freelanceportalbackend.onrender.com/locationedit', data)
       .toPromise();
   }
 
   getlocationbyid(data: any) {
     return this.http
-      .post<any>('http://localhost:3000/getlocationbyid', data)
+      .post<any>('https://freelanceportalbackend.onrender.com/getlocationbyid', data)
       .toPromise();
   }
 
   getSubcategory(data: any) {
     return this.http
-      .post('http://localhost:3000/getsubcategory', data)
+      .post('https://freelanceportalbackend.onrender.com/getsubcategory', data)
       .toPromise();
   }
 
   subcategoryDelete(data: any) {
     return this.http
-      .post('http://localhost:3000/subcategorydelete', data)
+      .post('https://freelanceportalbackend.onrender.com/subcategorydelete', data)
       .toPromise();
   }
 
   getSubcategoryById(data: any) {
     return this.http
-      .post('http://localhost:3000/getsubcategorybyid', data)
+      .post('https://freelanceportalbackend.onrender.com/getsubcategorybyid', data)
       .toPromise();
   }
 
   subcategoryEdit(data: any) {
     return this.http
-      .post('http://localhost:3000/subcategoryedit', data)
+      .post('https://freelanceportalbackend.onrender.com/subcategoryedit', data)
       .toPromise();
   }
 
   // getCategory(){
-  //   return this.http.get('http://localhost:3000/getcategory').toPromise();
+  //   return this.http.get('https://freelanceportalbackend.onrender.com/getcategory').toPromise();
   // }
 
   categoryDelete(data: any) {
     return this.http
-      .post('http://localhost:3000/categorydelete', data)
+      .post('https://freelanceportalbackend.onrender.com/categorydelete', data)
       .toPromise();
   }
 
   getCategoryById(data: any) {
     return this.http
-      .post('http://localhost:3000/getcategorybyid', data)
+      .post('https://freelanceportalbackend.onrender.com/getcategorybyid', data)
       .toPromise();
   }
 
   categoryEdit(data: any) {
     return this.http
-      .post('http://localhost:3000/categoryedit', data)
+      .post('https://freelanceportalbackend.onrender.com/categoryedit', data)
       .toPromise();
   }
 
   companyReg(data: any) {
-    return this.http.post('http://localhost:3000/companyreg', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/companyreg', data).toPromise();
   }
 
   getClientDetails(data: any) {
     return this.http
-      .post('http://localhost:3000/getclientdetails', data)
+      .post('https://freelanceportalbackend.onrender.com/getclientdetails', data)
       .toPromise();
   }
 
   freelancerReg(data: any) {
     return this.http
-      .post('http://localhost:3000/freelancerreg', data)
+      .post('https://freelanceportalbackend.onrender.com/freelancerreg', data)
       .toPromise();
   }
 
   workPost(data: any) {
-    return this.http.post('http://localhost:3000/workpost', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/workpost', data).toPromise();
   }
 
   getWorkDetails(data: any) {
     return this.http
-      .post('http://localhost:3000/getworkdetails', data)
+      .post('https://freelanceportalbackend.onrender.com/getworkdetails', data)
       .toPromise();
   }
 
   getWorkById(data: any) {
     return this.http
-      .post('http://localhost:3000/workdetails', data)
+      .post('https://freelanceportalbackend.onrender.com/workdetails', data)
       .toPromise();
   }
 
   getWorkByReqID(data: any) {
     return this.http
-      .post('http://localhost:3000/getworkbyrequestid', data)
+      .post('https://freelanceportalbackend.onrender.com/getworkbyrequestid', data)
       .toPromise();
   }
 
   workEdit(data: any) {
-    return this.http.post('http://localhost:3000/workedit', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/workedit', data).toPromise();
   }
 
   workDelete(data: any) {
-    return this.http.post('http://localhost:3000/workdelete', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/workdelete', data).toPromise();
   }
 
   getJobFreelancer(data: any) {
     return this.http
-      .post('http://localhost:3000/getjobfreelancer', data)
+      .post('https://freelanceportalbackend.onrender.com/getjobfreelancer', data)
       .toPromise();
   }
 
   getFreelancerById(data: any) {
     return this.http
-      .post<any>('http://localhost:3000/getfreelancerbyid', data)
+      .post<any>('https://freelanceportalbackend.onrender.com/getfreelancerbyid', data)
       .toPromise();
   }
 
   getFreelancerByWorkId(data: any) {
     return this.http
-      .post('http://localhost:3000/getfreelancerbyworkid', data)
+      .post('https://freelanceportalbackend.onrender.com/getfreelancerbyworkid', data)
       .toPromise();
   }
 
   getWorkByStatus(data: any) {
     return this.http
-      .post('http://localhost:3000/getworkbystatus', data)
+      .post('https://freelanceportalbackend.onrender.com/getworkbystatus', data)
       .toPromise();
   }
 
   getFreelancerByReq(data: any) {
     return this.http
-      .post('http://localhost:3000/getfreelancerbyreq', data)
+      .post('https://freelanceportalbackend.onrender.com/getfreelancerbyreq', data)
       .toPromise();
   }
 
   workReq(data: any) {
-    return this.http.post('http://localhost:3000/workreq', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/workreq', data).toPromise();
   }
 
   workReqDelete(data: any) {
     return this.http
-      .post('http://localhost:3000/workreqdelete', data)
+      .post('https://freelanceportalbackend.onrender.com/workreqdelete', data)
       .toPromise();
   }
 
   getReqById(data: any) {
     return this.http
-      .post('http://localhost:3000/getrequestbyid', data)
+      .post('https://freelanceportalbackend.onrender.com/getrequestbyid', data)
       .toPromise();
   }
 
   getReqByFreelancerId(data: any) {
     return this.http
-      .post('http://localhost:3000/getrequestbyfreelancerid', data)
+      .post('https://freelanceportalbackend.onrender.com/getrequestbyfreelancerid', data)
       .toPromise();
   }
 
   updateReqStatus(data: any) {
     return this.http
-      .post('http://localhost:3000/updatereqstatus', data)
+      .post('https://freelanceportalbackend.onrender.com/updatereqstatus', data)
       .toPromise();
   }
 
   updateReqReview(data: any) {
     return this.http
-      .post('http://localhost:3000/updatereqreview', data)
+      .post('https://freelanceportalbackend.onrender.com/updatereqreview', data)
       .toPromise();
   }
 
   updateWorkProgress(data: any) {
     return this.http
-      .post('http://localhost:3000/updateworkprogress', data)
+      .post('https://freelanceportalbackend.onrender.com/updateworkprogress', data)
       .toPromise();
   }
 
   getProgressById(data: any) {
     return this.http
-      .post('http://localhost:3000/getprogressbyid', data)
+      .post('https://freelanceportalbackend.onrender.com/getprogressbyid', data)
       .toPromise();
   }
 
   remarkView(data: any) {
-    return this.http.post('http://localhost:3000/remarkview', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/remarkview', data).toPromise();
   }
 
   payment(data: any) {
-    return this.http.post('http://localhost:3000/payment', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/payment', data).toPromise();
   }
 
   clientReport(data: any) {
     return this.http
-      .post('http://localhost:3000/clientreport', data)
+      .post('https://freelanceportalbackend.onrender.com/clientreport', data)
       .toPromise();
   }
 
   freelancerReport(data: any) {
     return this.http
-      .post('http://localhost:3000/freelancerreport', data)
+      .post('https://freelanceportalbackend.onrender.com/freelancerreport', data)
       .toPromise();
   }
 
   freelancerCategoryWise(data: any) {
     return this.http
-      .post('http://localhost:3000/categorywisefreelancer', data)
+      .post('https://freelanceportalbackend.onrender.com/categorywisefreelancer', data)
       .toPromise();
   }
 
   getClient(data: any) {
-    return this.http.post('http://localhost:3000/getclient', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/getclient', data).toPromise();
   }
 
   updateClientStatus(data: any) {
     return this.http
-      .post('http://localhost:3000/updateclientstatus', data)
+      .post('https://freelanceportalbackend.onrender.com/updateclientstatus', data)
       .toPromise();
   }
 
   categoryReport() {
-    return this.http.get('http://localhost:3000/piechartcategory').toPromise();
+    return this.http.get('https://freelanceportalbackend.onrender.com/piechartcategory').toPromise();
   }
 
   clientProfileEdit(data: any) {
     return this.http
-      .post('http://localhost:3000/clientprofileedit', data)
+      .post('https://freelanceportalbackend.onrender.com/clientprofileedit', data)
       .toPromise();
   }
 
   freelancerProfileEdit(data: any) {
     return this.http
-      .post('http://localhost:3000/freelancerprofileedit', data)
+      .post('https://freelanceportalbackend.onrender.com/freelancerprofileedit', data)
       .toPromise();
   }
 
   changePassword(data: any) {
-    return this.http.post('http://localhost:3000/changepwd', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/changepwd', data).toPromise();
   }
 
   forgotPWD(data: any) {
-    return this.http.post('http://localhost:3000/forgotpwd', data).toPromise();
+    return this.http.post('https://freelanceportalbackend.onrender.com/forgotpwd', data).toPromise();
   }
 
   paymentDetails(){
-    return this.http.get('http://localhost:3000/paymentdetails').toPromise();
+    return this.http.get('https://freelanceportalbackend.onrender.com/paymentdetails').toPromise();
   }
 }
